@@ -6,7 +6,17 @@ const chars1 = ["a", "b", "c", "d", "f", "g"]
 const chars2 = ["O", "Q", "R", "S"]
 
 function missingChar(chars) {
-  // 實作寫在這裡
+    if (!chars || !Array.isArray(chars) || chars.length <= 1) {
+        return "";
+    }
+
+    for (let i = 0, curCode = chars[0].charCodeAt(); i < chars.length; i++, curCode++) {
+        if (chars[i].charCodeAt() != curCode) {
+            return String.fromCharCode(curCode);
+        }
+    }
+
+    return "";
 }
 
 console.log(missingChar(chars1)) // 印出 e
